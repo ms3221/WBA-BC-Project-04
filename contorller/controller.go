@@ -3,6 +3,8 @@ package controller
 import (
 	"lecture/WBA-BC-Project-04/model"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 type Controller struct {
@@ -10,10 +12,7 @@ type Controller struct {
 }
 
 func NewCTL(rep *model.Model) (*Controller, error) {
-	r := &Controller{
-		md: rep,
-	}
-
+	r := &Controller{md: rep}
 	return r, nil
 }
 

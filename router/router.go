@@ -56,6 +56,12 @@ func (p *Router) Idx() *gin.Engine {
 	papi := e.Group("api/v1", liteAuth())
 	{
 		fmt.Println(papi)
+		game := papi.Group("game", liteAuth())
+		{
+			game.POST("/match", p.ct.GamePostMatchController) // match open을 위한 API
+			// game.POST("/match/join", p.ct.GetTest)            // match join을 위한 API
+			game.POST("/match/end", p.ct.GameEndMatchController) // match end를 위한 API
+		}
 	}
 
 	return e
