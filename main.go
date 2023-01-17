@@ -57,6 +57,8 @@ func main() {
 		g.Go(func() error {
 			return mapi.ListenAndServe()
 		})
+		quitDaemon := make(chan bool)
+		go mod.RunDaemon(quitDaemon)
 
 		quit := make(chan os.Signal)
 		signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
@@ -67,8 +69,8 @@ func main() {
 		defer cancel()
 		if err := mapi.Shutdown(ctx); err != nil {
 			fmt.Println("Server Shutdown:", err)
+			quitDaemon <- true
 		}
-
 		select {
 		case <-ctx.Done():
 			fmt.Println("timeout of 5 seconds.")

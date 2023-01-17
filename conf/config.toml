@@ -3,6 +3,7 @@ mode = "dev"
 port = ":8080"
 
 [db] #data access object
+
 [db.user] #이중 map type map[string]map[string]interface{}
 host = "mongodb://localhost:27017"
 user = "user"
@@ -30,6 +31,11 @@ excute = "x"
 duration = 60
 args = "exam"
 
+[database]
+host = "mongodb://localhost:27017"
+db = "Casino"
+gameCollection = "tGame"
+
 [log]
 level = "debug" # debug or info
 fpath = "./logs" # 로그가 생성될 경로 : ./logs, 로그파일명 go-loger_xxx.log
@@ -45,3 +51,6 @@ contractAddress = "0x20d2434416B2C850Ad7b933E98Deb683cc58e390"
 
 [keyStore]
 path = "./keystore/keystore"
+
+[daemon]
+url = "wss://ws.test.wemix.com"
