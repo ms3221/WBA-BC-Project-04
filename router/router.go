@@ -62,6 +62,11 @@ func (p *Router) Idx() *gin.Engine {
 			// game.POST("/match/join", p.ct.GetTest)            // match join을 위한 API
 			game.POST("/match/end", p.ct.GameEndMatchController) // match end를 위한 API
 		}
+
+		waitingRoom := papi.Group("waiting-room", liteAuth())
+		{
+			waitingRoom.GET("/", p.ct.GetWaitingRoomTest)
+		}
 	}
 
 	return e

@@ -1,0 +1,8 @@
+{"level":"DEBUG","time":"2023-01-17T20:16:30.245+0900","caller":"logger/logger.go:51","msg":"debug","-":"ready server.... "}
+{"level":"DEBUG","time":"2023-01-17T20:25:50.240+0900","caller":"logger/logger.go:51","msg":"debug","-":"ready server.... "}
+{"level":"DEBUG","time":"2023-01-17T20:28:37.890+0900","caller":"logger/logger.go:51","msg":"debug","-":"ready server.... "}
+{"level":"DEBUG","time":"2023-01-17T20:29:36.505+0900","caller":"logger/logger.go:51","msg":"debug","-":"ready server.... "}
+{"level":"DEBUG","time":"2023-01-17T20:31:09.328+0900","caller":"logger/logger.go:51","msg":"debug","-":"ready server.... "}
+{"level":"DEBUG","time":"2023-01-17T20:34:07.948+0900","caller":"logger/logger.go:51","msg":"debug","-":"ready server.... "}
+{"level":"DEBUG","time":"2023-01-17T20:37:31.268+0900","caller":"logger/logger.go:51","msg":"debug","-":"ready server.... "}
+{"level":"DEBUG","time":"2023-01-17T20:38:44.458+0900","caller":"logger/logger.go:51","msg":"debug","-":"ready server.... "}
