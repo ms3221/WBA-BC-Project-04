@@ -10,7 +10,7 @@ contract Casino is ERC721A {
 
       CasinoToken public casinoToken; 
       uint256 private constant _PRICE = 1e18;
-      uint256 private constant quantity = 5;
+      uint256 private constant quantity = 3;
       address private owner;
       constructor() ERC721A("Casino", "CASINO") {
           owner = msg.sender;
