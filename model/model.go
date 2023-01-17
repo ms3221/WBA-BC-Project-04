@@ -10,8 +10,10 @@ import (
 )
 
 type Model struct {
-	client *mongo.Client
-	game   Game
+	client  *mongo.Client
+	gameCol *mongo.Collection
+	game    Game
+	daemon  Daemon
 }
 type Game struct {
 	privateKey      string
@@ -20,17 +22,22 @@ type Game struct {
 	contractAddress string
 }
 
+type Daemon struct {
+	url string
+}
+
 func NewModel(cfg *conf.Config) (*Model, error) {
 	r := &Model{}
 
 	var err error
-	mgUrl := "mongodb://127.0.0.1:27017"
+	mgUrl := cfg.Database.Host
 	if r.client, err = mongo.Connect(context.Background(), options.Client().ApplyURI(mgUrl)); err != nil {
 		return nil, err
 	} else if err := r.client.Ping(context.Background(), nil); err != nil {
 		return nil, err
 	} else {
-		db := r.client.Database("go-ready")
+		db := r.client.Database(cfg.Database.DB)
+		r.gameCol = db.Collection(cfg.Database.GameCollection)
 		fmt.Println(db)
 		// r.colPersons = db.Collection("tPerson")
 		// r.colMenus = db.Collection("tMenu")
@@ -41,5 +48,7 @@ func NewModel(cfg *conf.Config) (*Model, error) {
 	r.game.netUrl = cfg.Contract.NetUrl
 	r.game.ownerAddress = cfg.Contract.OwnerAddress
 	r.game.contractAddress = cfg.Contract.ContractAddress
+	r.daemon.url = cfg.Daemon.Url
+
 	return r, nil
 }

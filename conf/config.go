@@ -29,6 +29,12 @@ type Config struct {
 
 	Work []Work
 
+	Database struct {
+		Host           string
+		DB             string
+		GameCollection string
+	}
+
 	Log struct {
 		Fpath   string
 		Msize   int
@@ -46,6 +52,9 @@ type Config struct {
 
 	KeyStore struct {
 		Path string
+	}
+	Daemon struct {
+		Url string
 	}
 }
 
