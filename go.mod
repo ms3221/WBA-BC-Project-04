@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/ethereum/go-ethereum v1.10.26
 	github.com/gin-gonic/gin v1.8.2
+	github.com/gorilla/websocket v1.5.0
 	github.com/naoina/toml v0.1.2-0.20170918210437-9fafd6967416
 	github.com/natefinch/lumberjack v2.0.0+incompatible
 	go.mongodb.org/mongo-driver v1.11.1
@@ -27,7 +28,6 @@ require (
 	github.com/goccy/go-json v0.9.11 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/uuid v1.2.0 // indirect
-	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
