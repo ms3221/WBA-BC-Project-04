@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 	conf "lecture/WBA-BC-Project-04/conf"
-	ctl "lecture/WBA-BC-Project-04/controller"
-	"lecture/WBA-BC-Project-04/logger"
-	"lecture/WBA-BC-Project-04/model"
+	ctl "lecture/WBA-BC-Project-04/contorller"
+	lg "lecture/WBA-BC-Project-04/logger"
+	md "lecture/WBA-BC-Project-04/model"
 	rt "lecture/WBA-BC-Project-04/router"
 	"net/http"
 	"os"
@@ -31,15 +31,15 @@ func main() {
 	}
 
 	// 로그 초기화
-	if err := logger.InitLogger(cf); err != nil {
+	if err := lg.InitLogger(cf); err != nil {
 		fmt.Printf("init logger failed, err:%v\n", err)
 		return
 	}
 
-	logger.Debug("ready server....")
+	lg.Debug("ready server....")
 
 	//model 모듈 선언
-	if mod, err := model.NewModel(); err != nil {
+	if mod, err := md.NewModel(cf); err != nil {
 		panic(err)
 	} else if controller, err := ctl.NewCTL(mod); err != nil {
 		panic(fmt.Errorf("controller.New > %v", err))

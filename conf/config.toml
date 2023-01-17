@@ -36,3 +36,12 @@ fpath = "./logs" # 로그가 생성될 경로 : ./logs, 로그파일명 go-loger
 msize = 2000    # 2g : megabytes
 mage = 7        # 7days
 mbackup = 5    # number of log files
+
+
+[contract]
+netUrl = "https://api.test.wemix.com"
+ownerAddress = "0xC86C3c58e0eA6d0e159D883086fB5A9DA102aC09"
+contractAddress = "0x20d2434416B2C850Ad7b933E98Deb683cc58e390"
+
+[keyStore]
+path = "./keystore/keystore"
